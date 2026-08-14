@@ -1,0 +1,164 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  lang?: string;
+}
+
+const { title, description = 'Community-betriebener Mercedes-Benz T1 Teilekatalog', lang = 'de' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} – MB Teilekatalog</title>
+    <style>
+      /* ── Design tokens ─────────────────────────────────────────── */
+      :root {
+        --mb-blue:   #003366;
+        --mb-silver: #c0c8d0;
+        --mb-white:  #ffffff;
+        --mb-black:  #111111;
+        --mb-grey:   #f4f5f7;
+        --mb-border: #dde1e7;
+        --mb-accent: #007bff;
+        --radius:    6px;
+        --shadow:    0 2px 8px rgba(0,0,0,.10);
+        --font:      system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+
+      /* ── Reset ─────────────────────────────────────────────────── */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--font);
+        background: var(--mb-grey);
+        color: var(--mb-black);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      a { color: var(--mb-accent); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* ── Header ────────────────────────────────────────────────── */
+      header {
+        background: var(--mb-blue);
+        color: var(--mb-white);
+        padding: 0 1.5rem;
+      }
+      .header-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        height: 64px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: inherit;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+      }
+      .logo svg { width: 36px; height: 36px; flex-shrink: 0; }
+      nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+      nav a {
+        color: var(--mb-silver);
+        font-size: 0.9rem;
+        padding: 0.25rem 0;
+        border-bottom: 2px solid transparent;
+        text-decoration: none;
+      }
+      nav a:hover, nav a[aria-current="page"] {
+        color: var(--mb-white);
+        border-bottom-color: var(--mb-white);
+      }
+
+      /* ── Main ──────────────────────────────────────────────────── */
+      main {
+        flex: 1;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        width: 100%;
+      }
+
+      /* ── Footer ────────────────────────────────────────────────── */
+      footer {
+        background: var(--mb-blue);
+        color: var(--mb-silver);
+        text-align: center;
+        padding: 1rem 1.5rem;
+        font-size: 0.8rem;
+      }
+      footer a { color: var(--mb-silver); }
+      footer a:hover { color: var(--mb-white); }
+
+      /* ── Utility cards ─────────────────────────────────────────── */
+      .card {
+        background: var(--mb-white);
+        border: 1px solid var(--mb-border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 1.25rem 1.5rem;
+      }
+
+      /* ── Responsive ────────────────────────────────────────────── */
+      @media (max-width: 600px) {
+        .header-inner { height: auto; padding: 0.75rem 0; flex-direction: column; align-items: flex-start; }
+        nav { gap: 0.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <!-- Mercedes-Benz three-pointed star (simplified SVG) -->
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="18" cy="18" r="17" stroke="#c0c8d0" stroke-width="2"/>
+            <circle cx="18" cy="18" r="13" stroke="#c0c8d0" stroke-width="1"/>
+            <path d="M18 5 L18 18 L28.5 27" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18 18 L7.5 27" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18 5 L18 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          MB Teilekatalog
+        </a>
+        <nav aria-label="Hauptnavigation">
+          <a href="/">Modelle</a>
+          <a href="/about/">Über das Projekt</a>
+          <a href="/contribute/">Mitmachen</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer>
+      <p>
+        Community-Projekt · Keine offizielle Mercedes-Benz Seite ·
+        Daten unter <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="noopener noreferrer" target="_blank">CC BY-SA 4.0</a> ·
+        <a href="https://github.com/el-j/mb-teilekatalog.info" rel="noopener noreferrer" target="_blank">GitHub</a>
+      </p>
+      <p style="margin-top:0.25rem; font-size:0.75rem; opacity:0.8;">
+        Teilenummern dienen nur als Referenz. Keine Gewähr für Richtigkeit oder Verfügbarkeit.
+        Nicht verbunden mit Mercedes-Benz Group AG.
+      </p>
+    </footer>
+  </body>
+</html>
