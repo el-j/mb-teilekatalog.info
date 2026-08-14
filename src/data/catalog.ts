@@ -29,6 +29,8 @@ export interface PartSubgroup {
   id: string;
   name: string;
   nameEn: string;
+  /** Path(s) to exploded-diagram images, relative to /public (e.g. /diagrams/…) */
+  diagrams?: string[];
   parts: Part[];
 }
 

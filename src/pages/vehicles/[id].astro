@@ -53,6 +53,21 @@ const vehicle = vehicles.find(v => v.id === id)!;
               {sg.name} <span style="font-weight:400; color:#888;">/ {sg.nameEn}</span>
             </h3>
 
+            {sg.diagrams && sg.diagrams.length > 0 && (
+              <div class="diagram-gallery" style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:1rem;">
+                {sg.diagrams.map(src => (
+                  <a href={src} target="_blank" rel="noopener noreferrer" title="Explosionszeichnung öffnen">
+                    <img
+                      src={src}
+                      alt={`Explosionszeichnung: ${sg.nameEn}`}
+                      loading="lazy"
+                      style="max-height:200px; border:1px solid #dde1e7; border-radius:4px; background:#fff; cursor:zoom-in;"
+                    />
+                  </a>
+                ))}
+              </div>
+            )}
+
             <div style="overflow-x:auto;">
               <table style="width:100%; border-collapse:collapse; font-size:0.88rem;">
                 <thead>
