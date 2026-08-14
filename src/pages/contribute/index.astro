@@ -1,0 +1,98 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Mitmachen" description="Wie du zum Mercedes-Benz Teilekatalog Community-Projekt beitragen kannst">
+  <h1 style="font-size:1.75rem; color:#003366; margin-bottom:1.5rem;">Mitmachen</h1>
+
+  <div class="card" style="margin-bottom:1.25rem;">
+    <h2 style="font-size:1.2rem; color:#003366; margin-bottom:0.75rem;">🙌 Wie kannst du helfen?</h2>
+    <p style="margin-bottom:1rem; font-size:0.93rem;">
+      Dieses Projekt lebt von der Community! Jeder Beitrag ist willkommen – ob du Teilenummern
+      kennst, Zeichnungen hast oder einfach Fehler korrigieren möchtest.
+    </p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem;">
+      <div style="border:1px solid #dde1e7; border-radius:6px; padding:1rem;">
+        <div style="font-size:1.5rem; margin-bottom:0.5rem;">📝</div>
+        <strong>Teiledaten ergänzen</strong>
+        <p style="font-size:0.85rem; color:#555; margin-top:0.4rem;">
+          Ergänze Teilenummern, Beschreibungen oder technische Spezifikationen in der
+          Datei <code>src/data/catalog.ts</code>.
+        </p>
+      </div>
+      <div style="border:1px solid #dde1e7; border-radius:6px; padding:1rem;">
+        <div style="font-size:1.5rem; margin-bottom:0.5rem;">🖼️</div>
+        <strong>Explosionszeichnungen</strong>
+        <p style="font-size:0.85rem; color:#555; margin-top:0.4rem;">
+          Wenn du gescannte oder vektorisierte Explosionszeichnungen (unter CC-Lizenz) hast,
+          füge sie dem Ordner <code>public/diagrams/</code> hinzu.
+        </p>
+      </div>
+      <div style="border:1px solid #dde1e7; border-radius:6px; padding:1rem;">
+        <div style="font-size:1.5rem; margin-bottom:0.5rem;">🚗</div>
+        <strong>Weitere Modelle</strong>
+        <p style="font-size:0.85rem; color:#555; margin-top:0.4rem;">
+          Füge neue Fahrzeuge zur <code>vehicles</code>-Liste hinzu und ergänze die
+          zugehörigen Teilgruppen.
+        </p>
+      </div>
+      <div style="border:1px solid #dde1e7; border-radius:6px; padding:1rem;">
+        <div style="font-size:1.5rem; margin-bottom:0.5rem;">🐛</div>
+        <strong>Fehler melden</strong>
+        <p style="font-size:0.85rem; color:#555; margin-top:0.4rem;">
+          Öffne ein <a href="https://github.com/el-j/mb-teilekatalog.info/issues" rel="noopener noreferrer" target="_blank">GitHub Issue</a>,
+          wenn du einen Fehler findest.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:1.25rem;">
+    <h2 style="font-size:1.2rem; color:#003366; margin-bottom:0.75rem;">🚀 Lokale Entwicklung</h2>
+    <pre style="background:#1a1a2e; color:#e0e0e0; padding:1rem; border-radius:6px; font-size:0.85rem; overflow-x:auto; line-height:1.7;"><code># Repo klonen
+git clone https://github.com/el-j/mb-teilekatalog.info.git
+cd mb-teilekatalog.info
+
+# Abhängigkeiten installieren
+npm install
+
+# Entwicklungsserver starten
+npm run dev
+
+# Produktions-Build erzeugen
+npm run build</code></pre>
+  </div>
+
+  <div class="card" style="margin-bottom:1.25rem;">
+    <h2 style="font-size:1.2rem; color:#003366; margin-bottom:0.75rem;">📋 Richtlinien für Beiträge</h2>
+    <ul style="list-style:disc; padding-left:1.5rem; line-height:1.9; font-size:0.93rem;">
+      <li>Bitte stelle sicher, dass Teilenummern aus zuverlässigen Quellen stammen (Werkstatthandbücher,
+          offizielle Kataloge, EPC-Snapshots).</li>
+      <li>Gib in Pull Requests an, woher die Daten stammen.</li>
+      <li>Urheberrechtlich geschütztes Material darf <strong>nicht</strong> direkt eingefügt werden.
+          Nur Teilenummern und technische Beschreibungen, die als Fakten nicht urheberrechtsfähig sind.</li>
+      <li>Alle Beiträge werden unter <strong>CC BY-SA 4.0</strong> veröffentlicht.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2 style="font-size:1.2rem; color:#003366; margin-bottom:0.75rem;">🔗 Links</h2>
+    <ul style="list-style:none; padding:0; line-height:2; font-size:0.93rem;">
+      <li>
+        <a href="https://github.com/el-j/mb-teilekatalog.info" rel="noopener noreferrer" target="_blank">
+          📦 GitHub Repository
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/el-j/mb-teilekatalog.info/issues" rel="noopener noreferrer" target="_blank">
+          🐛 Issues / Fehlerberichte
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/el-j/mb-teilekatalog.info/pulls" rel="noopener noreferrer" target="_blank">
+          🔀 Pull Requests
+        </a>
+      </li>
+    </ul>
+  </div>
+</Base>
